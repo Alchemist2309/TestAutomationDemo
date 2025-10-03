@@ -12,3 +12,8 @@ Feature: Login and Expenses Table Validations
     Given I am on the login page
     When I login with username "testuser" and password "testpassword"
     Then I should see exactly 6 transactions
+
+  Scenario: Validate total balance
+    Given I am on the login page
+    When I login with username "testuser" and password "testpassword"
+    Then the total balance should be "350"

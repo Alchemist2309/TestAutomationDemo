@@ -22,3 +22,8 @@ def assert_dashboard(context):
 @then("I should see exactly 6 transactions")
 def step_validate_transactions(context):
     assert context.dashboard_page.transactions_count() == 6
+
+@then('the total balance should be "{expected_balance}"')
+def step_validate_balance(context, expected_balance):
+    print('actual balance', context.dashboard_page.total_balance())
+    assert context.dashboard_page.total_balance() == expected_balance
