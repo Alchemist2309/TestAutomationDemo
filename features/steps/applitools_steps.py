@@ -31,3 +31,16 @@ def step_validate_balance(context, expected_balance):
 @then('the credit available should be "{expected_credit}"')
 def step_validate_credit(context, expected_credit):
     assert context.dashboard_page.credit_available() == expected_credit
+
+@then("positive amounts should be displayed in green")
+def step_validate_positive_amounts(context):
+    assert context.dashboard_page.amounts_green()
+
+@then("negative amounts should be displayed in red")
+def step_validate_negative_amounts(context):
+    assert context.dashboard_page.amounts_red()
+
+@then("the Compare Expenses")
+def step_compare_expenses(context):
+    context.dashboard_page.click_compare_expenses()
+    assert context.dashboard_page.expenses_page() == 'Show data for next year'
