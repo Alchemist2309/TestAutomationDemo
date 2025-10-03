@@ -27,3 +27,7 @@ def step_validate_transactions(context):
 def step_validate_balance(context, expected_balance):
     print('actual balance', context.dashboard_page.total_balance())
     assert context.dashboard_page.total_balance() == expected_balance
+
+@then('the credit available should be "{expected_credit}"')
+def step_validate_credit(context, expected_credit):
+    assert context.dashboard_page.credit_available() == expected_credit

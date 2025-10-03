@@ -17,3 +17,8 @@ Feature: Login and Expenses Table Validations
     Given I am on the login page
     When I login with username "testuser" and password "testpassword"
     Then the total balance should be "350"
+  
+  Scenario: Validate credit available
+    Given I am on the login page
+    When I login with username "testuser" and password "testpassword"
+    Then the credit available should be "$17,800"
