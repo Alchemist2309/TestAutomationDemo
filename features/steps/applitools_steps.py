@@ -14,6 +14,11 @@ def step_login(context, username, password):
     context.login_page.login(username, password)
     context.dashboard_page = DashboardPage(context.driver)
 
-@then('I should be redirected to the expenses table page')
+@then('I should be redirected to the dashboard table page')
 def assert_dashboard(context):
     assert context.dashboard_page.is_dashboard_page()
+    assert context.dashboard_page.is_correct_url()
+
+@then("I should see exactly 6 transactions")
+def step_validate_transactions(context):
+    assert context.dashboard_page.transactions_count() == 6

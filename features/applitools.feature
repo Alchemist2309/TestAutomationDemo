@@ -6,4 +6,9 @@ Feature: Login and Expenses Table Validations
   Scenario: Login redirects to dashboard
     Given I am on the login page
     When I login with username "testuser" and password "testpassword"
-    Then I should be redirected to the expenses table page
+    Then I should be redirected to the dashboard table page
+
+  Scenario: Validate transactions count
+    Given I am on the login page
+    When I login with username "testuser" and password "testpassword"
+    Then I should see exactly 6 transactions
